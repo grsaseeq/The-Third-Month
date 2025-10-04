@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thirtd Month</title>
+        <link rel="stylesheet" href="site.css">
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.memory-card').forEach(function(card) {
+                const videoBtn = card.querySelector('.video-btn');
+                const videoPopup = card.querySelector('.video-popup');
+                if(videoBtn && videoPopup) {
+                    videoBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        videoPopup.classList.add('open');
+                    });
+                    videoPopup.querySelector('.close-btn').addEventListener('click', function() {
+                        videoPopup.classList.remove('open');
+                        // Videoları durdur
+                        videoPopup.querySelectorAll('video').forEach(v => { v.pause(); v.currentTime = 0; });
+                    });
+                }
+            });
+            // Popup dışında bir yere tıklanınca kapansın
+            document.addEventListener('click', function(e) {
+                document.querySelectorAll('.video-popup.open').forEach(function(popup) {
+                    if (!popup.contains(e.target)) {
+                        popup.classList.remove('open');
+                        popup.querySelectorAll('video').forEach(v => { v.pause(); v.currentTime = 0; });
+                    }
+                });
+            });
+        });
+        </script>
+</head>
+<body>
+    <header class="site-header">
+        <h1>Birlikte Anılarımız</h1>
+        <p>Balımla en güzel anlarımızı burada paylaşıyorum 💜</p>
+    </header>
+    <main class="gallery">
+        <section class="memory-card">
+            <img src="Fotoğraflar/IMG-20250627-WA0013.jpg" alt="Birlikte Fotoğrafımız">
+            <div class="memory-info">
+                <h2>Şiirlerin ve Benim Şiirim</h2>
+                <p>Harika bir buluşmaydı, şiirlerinin içinde kaybolmuştum resmen. Gözlerinden bahsetmiyorum bile. Senin için değerli olan o kafeye götürmüştün beni, şimdi her zaman gidiyoruz. O kafeye benim gözlerimde değerini katan da sensin.</p>
+            </div>
+        </section>
+        <section class="memory-card">
+            <img src="Fotoğraflar/IMG_20250918_074332_311.jpg" alt="Birlikte Fotoğrafımız">
+            <div class="memory-info">
+                <h2>Anlık Buluşmamız</h2>
+                <p>Gelebilirsin dediğin anda evden fırlarkenki anı hatırlıyorum. Seni görebileceğim için öylesine mutluydum ki anlatama. Konu sen olunca zaman etrafımda duruveriyordu.</p>
+            </div>
+        </section>
+        <section class="memory-card">
+            <div class="memory-img-wrapper">
+                <img src="Fotoğraflar/IMG_20250907_214314_844.jpg" alt="Birlikte Fotoğrafımız">
+                <button class="video-btn" title="Video İzle">🎬</button>
+                <div class="video-popup">
+                    <button class="close-btn">×</button>
+                    <h3>Bu anıya ait videolar</h3>
+                    <div class="video-list">
+                        <video controls width="260">
+                            <source src="Fotoğraflar/Adsız video ‐ Clipchamp ile yapıldı.mp4" type="video/mp4">
+                            Tarayıcınız video etiketini desteklemiyor.
+                        </video>
+                        <video controls width="260">
+                            <source src="Fotoğraflar/Adsız video ‐ Clipchamp ile yapıldı (1).mp4" type="video/mp4">
+                            Tarayıcınız video etiketini desteklemiyor.
+                        </video>
+                        <video controls width="260">
+                            <source src="Fotoğraflar/Adsız video ‐ Clipchamp ile yapıldı (2).mp4" type="video/mp4">
+                            Tarayıcınız video etiketini desteklemiyor.
+                        </video>
+                        <!-- İsterseniz buraya başka video etiketleri de ekleyebilirsiniz -->
+                    </div>
+                </div>
+            </div>
+            <div class="memory-info">
+                <h2>Güven Park</h2>
+                <p>Her dakikasıyla o kadar mükemmeldi ki o gün. O saatte orada birlikte olabilmek bile içimi ısıtıyordu, o kadar hoştu ki. Yanımdaydın ve mükemmeldik bir tek bunu biliyorum.</p>
+            </div>
+        </section>
+         <section class="memory-card">
+            <img src="Fotoğraflar/IMG_20250927_212312_880.jpg" alt="Birlikte Fotoğrafımız">
+            <div class="memory-info">
+                <h2>En Sevdiğim Fotoğrafımız</h2>
+                <p>Fotoğraftaki benzerliğimiz bile kalbimi seninle doldurmaya yetiyor. Ayrıca gözlüğüne hala bayılıyorum, seninle bir olduğunda aklımı başımdan almaya yetiyor.</p>
+            </div>
+        </section>
+        <section class="memory-card">
+            <img src="Fotoğraflar/IMG_20250927_212316_139.jpg" alt="Birlikte Fotoğrafımız">
+            <div class="memory-info">
+                <h2>Bizim Fotoğrafımız</h2>
+                <p>Bu fotoğraf tamamen biziz ve okadar tatlıyız ki. Birbirimizi tamamladığımızı hissettiren bir fotoğraf. Yanındayken hissettiğim huzurun fotoğrafa dönmüş hali gibi.</p>
+            </div>
+        </section>
+        <section class="memory-card">
+            <img src="Fotoğraflar/IMG-20250722-WA0006.jpg" alt="Birlikte Fotoğrafımız">
+            <div class="memory-info">
+                <h2>İlk Fotoğrafımız?</h2>
+                <p>Birlikte olduğumuz ilk fotoğraf bu muydu sanki?</p>
+            </div>
+        </section>
+            <section class="memory-card">
+                <div class="memory-img-wrapper">
+                <img src="Fotoğraflar/IMG-20250629-WA0000.jpg" alt="Birlikte Fotoğrafımız">
+                <button class="video-btn" title="Video İzle">🎬</button>
+                <div class="video-popup">
+                    <button class="close-btn">×</button>
+                    <h3>Bu anıya ait videolar</h3>
+                    <div class="video-list">
+                        <video controls width="260">
+                            <source src="Fotoğraflar/VID-20250629-WA0003.mp4" type="video/mp4">
+                            Tarayıcınız video etiketini desteklemiyor.
+                        </video>
+                        <!-- İsterseniz buraya başka video etiketleri de ekleyebilirsiniz -->
+                    </div>
+                </div>
+            </div>
+                <div class="memory-info">
+                    <h2>GERÇEK İLK FOTOĞRAFIMIZ.</h2>
+                    <p>HAYIRR O DEĞİL! Birlikte olduğumuz ilk fotoğraf işte bu, ne de güzel bir gündü. Gölgelerimizin orada görünmesi o an bile ne kadar güzel olduğumuzu kanıtlıyordu resmen.</p>
+                </div>
+            </section>
+            <section class="memory-card">
+                <img src="Fotoğraflar/IMG_20250919_223642_737.jpg" alt="Birlikte Fotoğrafımız">
+                <div class="memory-info">
+                    <h2>"Sadece 5 Dakika"</h2>
+                    <p>Bir kaç dakika görebilmek için camına geldiğim gün. O kadar iyiydi ki benim için, seni görebilmek günün tüm yorgunluğunu üzerimden atmıştı. O an benim için sadece sen vardın dünyada ve her an kalbimde, en rahat yerde sen kaldın.</p>
+                </div>
+            </section>
+         <section class="memory-card">
+            <img src="Fotoğraflar/IMG_20250907_182246.jpg" alt="Birlikte Fotoğrafımız">
+            <div class="memory-info">
+                <h2>Adını Hatırlamadığım Kedi</h2>
+                <p>Evet, kedinin adını hatırlamıyorum. Ama kollarında o kadar rahattı ki buraya eklemek istedim. Değer verdiğin herşey huzurla buluşuyor; aynı kedi gibi, aynı benim gibi</p>
+            </div>
+        </section>
+         <section class="memory-card">
+            <img src="Fotoğraflar/IMG_20250920_231356_592.jpg" alt="Birlikte Fotoğrafımız">
+            <div class="memory-info">
+                <h2>Caribu</h2>
+                <p>Caribu kafede beraberdik. Evet o günün başında biraz gergindin, ama önemli olan benim için bu değildi. Benim için önemli olan seninle zaman geçirebiliyor olmamdı. Her ne durumda olursan ol yanında olabilmekti. Ben ödev yaparken laptobumdan alışveriş yapman anı çok tatlı hale getirmişti.</p>
+            </div>
+        </section>
+        <section class="memory-card">
+            <div class="memory-img-wrapper">
+               <img src="Fotoğraflar/IMG-20250729-WA0000.jpg" alt="Birlikte Fotoğrafımız">
+                <button class="video-btn" title="Video İzle">🎬</button>
+                <div class="video-popup">
+                    <button class="close-btn">×</button>
+                    <h3>Bu anıya ait videolar</h3>
+                    <div class="video-list">
+                        <video controls width="260">
+                            <source src="Fotoğraflar/VID-20250729-WA0001.mp4" type="video/mp4">
+                            Tarayıcınız video etiketini desteklemiyor.
+                        </video>
+                        <video controls width="260">
+                            <source src="Fotoğraflar/VID-20250729-WA0004.mp4" type="video/mp4">
+                            Tarayıcınız video etiketini desteklemiyor.
+                        </video>
+                        <!-- İsterseniz buraya başka video etiketleri de ekleyebilirsiniz -->
+                    </div>
+                </div>
+            </div>
+            <div class="memory-info">
+                <h2>Kocatepe</h2>
+                <p>Bu fotoğrafı çok güzel fotoğraf çekerim diyerek çekmiştin. Gerçekten de mükemmel çektin. Bu günün sabahı evet biraz gergin ve saçmaydı ama sonları çok hoş ve güzeldi, bişeyleri çözmeye başlamıştık.</p>
+            </div>
+        </section>
+         <section class="memory-card">
+            <img src="Fotoğraflar/IMG-20250801-WA0015.jpg" alt="Birlikte Fotoğrafımız">
+            <div class="memory-info">
+                <h2>Bebeğim.</h2>
+                <p>Bazen bir bebekmişsin gibi davrandığımı söylemiştin ya, evet sen benim bebeğimsin seni bazı anlarda öylesine tatlı görüyorum ki benim için küçücük bir bebek gibi görünüyorsun aşk dolu gözlerimde. Sen benim Balımsın, Aselimsin.</p>
+            </div>
+        </section>
+        <!-- Sadece video eklemek için bağımsız kartlar -->
+        <div class="section-divider">Videolarımız</div>
+        <section class="video-card">
+            <video controls poster="">
+                <source src="Fotoğraflar/VID_20250907_130250_029.mp4" type="video/mp4">
+                Tarayıcınız video etiketini desteklemiyor.
+            </video>
+            <div class="memory-info">
+                <h2>Çünkü Gay.</h2>
+                <p>Bu video da bunu dediğini izlediğimde fark ettim ve okadar gülmüştüm ki anlatamam. Çok komik bir video benim için.</p>
+            </div>
+        </section>
+        <section class="video-card">
+            <video controls poster="">
+                <source src="Fotoğraflar/VID_20250901_141814_653.mp4" type="video/mp4">
+                Tarayıcınız video etiketini desteklemiyor.
+            </video>
+            <div class="memory-info">
+                <h2>Kürdan</h2>
+                <p>Yenisini çekeceğiz dedin ama bu haliyle de çok güzel ve tatlı.</p>
+            </div>
+        </section>
+        <section class="video-card">
+            <video controls poster="">
+                <source src="Fotoğraflar/VID-20250724-WA0018.mp4" type="video/mp4">
+                Tarayıcınız video etiketini desteklemiyor.
+            </video>
+            <div class="memory-info">
+                <h2>Ampulleri Kapa.</h2>
+                <p>Ampuller kapatıldı, ufak bir devrimsel projeydi.</p>
+            </div>
+        </section>
+            <section class="video-card">
+            <video controls poster="">
+                <source src="Fotoğraflar/VID-20250724-WA0019.mp4" type="video/mp4">
+                Tarayıcınız video etiketini desteklemiyor.
+            </video>
+            <div class="memory-info">
+                <h2>D&R</h2>
+                <p>Bir öncekine göre daha büyük bir devrimsel projeydi. Yakalandık.</p>
+            </div>
+        </section>
+        </section>
+            <section class="video-card">
+            <video controls poster="">
+                <source src="Fotoğraflar/VID_20250806_110704_517.mp4" type="video/mp4">
+                Tarayıcınız video etiketini desteklemiyor.
+            </video>
+            <div class="memory-info">
+                <h2>Maymun...</h2>
+                <p>Videodaki sesi zaten duyamıyodum, bana maymun dediğini anlayınca engel olmaya çalıştım ama başaramadım... (anlamadığım nedenlerden dolayı video yarıda kesiliyor :( )</p>
+            </div>
+        </section>
+        </section>
+            <section class="video-card">
+            <video controls poster="">
+                <source src="Fotoğraflar/Adsız video ‐ Clipchamp ile yapıldı (3).mp4" type="video/mp4">
+                Tarayıcınız video etiketini desteklemiyor.
+            </video>
+            <div class="memory-info">
+                <h2>Guccük Bardaaak</h2>
+                <p>Bu da bence komik bi video burda kalabilirr.</p>
+            </div>
+        </section>
+        <section class="video-card">
+            <video controls poster="">
+                <source src="Fotoğraflar/Adsız video ‐ Clipchamp ile yapıldı (4).mp4" type="video/mp4">
+                Tarayıcınız video etiketini desteklemiyor.
+            </video>
+            <div class="memory-info">
+                <h2>FULAAARR</h2>
+                <p>Videonun tatlılığının yanında bide o fular hala bende duruyor. Ve ben o fular için canımı veririm, hala saklıyorum.</p>
+            </div>
+        </section>
+        <!-- Yeni video eklemek için yukarıdaki video-card bölümünü kopyalayıp kullanabilirsin -->
+    </main>
+    <footer class="site-footer">
+        <div class="footer-note-label">Sevgilime Notum:</div>
+        <textarea class="footer-note">Bu site belki internette dolaşmayacak, ama bizim için hep var olacak ve hep geliştireceğim.
+
+Birlikte olduğumuz sürece her an senin yanında olacağım. Her zaman senin tarafında seninle beraber her aksiliğe karşı savaşacağım.
+
+Belki çok geç, belki de çok erken tanıştık ama iyiki tanıştık. Madem bir kere girdin hayatıma birdaha çıkma asla, hep benimle kal; ben değil, sen değil, biz olalım;
+
+Kalbimin her yerinde yuvan var, ruhumun içinde yerin var. Sen benden bir parça olduğundan bu yana ben kendimi daha da ben gibi hisseiyorum; varolduğun, benim olduğun için her şey için teşekkür ederim.
+
+Bir yere varabilir miyim bilmiyorum, sevgimi anlatsam kaç cilt çıkar, kaç yıl geçer bilmiyorum. Bunu anlatmaya ne kağıt yeter, ne de ömrüm; işte bunu biliyorum.
+
+Ama ben bir yere varamayacağım, Biz bir yere varacağız.
+
+İyiki varsın, iyiki biziz. Seviyorum seni Balım.</textarea>
+    </footer>
+</body>
+</html>
